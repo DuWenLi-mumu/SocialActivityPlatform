@@ -13,6 +13,7 @@
         <typeAlias type="com.pm.social.domain.User" alias="user"></typeAlias>
         <typeAlias type="com.pm.social.domain.Card" alias="card"></typeAlias>
         <typeAlias type="com.pm.social.domain.Activity" alias="activity"></typeAlias>
+        <typeAlias type="com.pm.social.domain.Friend" alias="friend"></typeAlias>
     </typeAliases>
 
     <!--数据源环境-->
@@ -34,6 +35,7 @@
         <mapper resource="mapper/UserMapper.xml"></mapper>
         <mapper resource="mapper/CardMapper.xml"></mapper>
         <mapper resource="mapper/ActivityMapper.xml"></mapper>
+        <mapper resource="mapper/FriendMapper.xml"></mapper>
     </mappers>
 
 </configuration>

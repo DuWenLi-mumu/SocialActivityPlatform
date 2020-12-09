@@ -10,7 +10,7 @@ import java.util.Date;
 @Data
 public class Activity {
     private Integer id;
-    private Integer launcherId;
+    private Integer launcher_id;
     private Date time;
     private String address;
     private String description;

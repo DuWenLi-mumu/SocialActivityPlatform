@@ -9,12 +9,12 @@ import lombok.Data;
 @Data
 public class Card {
     private Integer id;
-    private Integer templateId;
+    private Integer template_id;
     private Integer userId;
 
     public Card(Integer id, Integer templateId, Integer userId) {
         this.id = id;
-        this.templateId = templateId;
+        this.template_id = templateId;
         this.userId = userId;
     }
 }

@@ -35,7 +35,7 @@ public class CardService {
         userCard.setDescription(user.getDescription());
         userCard.setName(user.getName());
         userCard.setPhone(user.getPhone());
-        userCard.setTemplateId(card.getTemplateId());
+        userCard.setTemplateId(card.getTemplate_id());
         switch (user.getRole()) {
             case 1:
                 userCard.setRole("学校");
