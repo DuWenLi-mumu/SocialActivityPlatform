@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pm.social.mapper.ActivityMapper">
+    <!--    查询操作-->
+    <select id="findById" resultType="Activity" parameterType="int">
+        select * from activity where id = #{id}
+    </select>
+    <select id="findAll" resultType="Activity">
+        select * from activity
+    </select>
+    <select id="findUserActivities" resultType="Activity" parameterType="int">
+        select * from activity a where a.launcher_id = #{userId}
+    </select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--通过properties标签加载外部properties文件-->
+    <properties resource="jdbc.properties"></properties>
+    <settings>
+        <setting name="logImpl" value= "LOG4J"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!--自定义别名-->
+    <typeAliases>
+        <typeAlias type="com.pm.social.domain.User" alias="user"></typeAlias>
+        <typeAlias type="com.pm.social.domain.Card" alias="card"></typeAlias>
+        <typeAlias type="com.pm.social.domain.Activity" alias="activity"></typeAlias>
+    </typeAliases>
+
+    <!--数据源环境-->
+    <environments default="developement">
+        <environment id="developement">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <!--加载映射文件-->
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"></mapper>
+        <mapper resource="mapper/CardMapper.xml"></mapper>
+        <mapper resource="mapper/ActivityMapper.xml"></mapper>
+    </mappers>
+
+</configuration>
