@@ -4,6 +4,7 @@ import com.pm.social.Service.UserService;
 import com.pm.social.domain.Card;
 import com.pm.social.domain.Result;
 import com.pm.social.domain.User;
+import com.pm.social.domain.vo.UserInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -26,7 +27,7 @@ public class UserController {
     @ApiOperation(value = "获取用户列表", notes = "获取所有用户信息")
     @GetMapping("/findAllUsers")
     public Result findAllUsers() {
-        List<User> userList = userService.findAllUsers();
+        List<UserInfo> userList = userService.findAllUsers();
         return Result.success(userList);
     }
 
@@ -36,7 +37,7 @@ public class UserController {
             @ApiImplicitParam(name = "userId", value = "用户id", required = true, dataType = "int", paramType = "query")
     })
     public Result findOneUser(int userId) {
-        User user = userService.findOneUser(userId);
+        UserInfo user = userService.findOneUser(userId);
         if (user == null){
             return Result.fail("用户不存在");
         }else {

@@ -21,6 +21,6 @@ public class Activity {
     private String title;
     private String description;
     private Integer type;
-
+    private Integer max_number;
 
 }

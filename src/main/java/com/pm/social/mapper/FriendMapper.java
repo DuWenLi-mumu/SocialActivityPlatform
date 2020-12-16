@@ -15,4 +15,6 @@ import java.util.List;
 public interface FriendMapper {
     List<Friend> findFriendsById(int userId);
     List<Friend> findAll();
+
+    Integer addFriends(int userId, int friendId);
 }

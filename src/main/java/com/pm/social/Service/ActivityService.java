@@ -2,7 +2,9 @@ package com.pm.social.Service;
 
 import com.pm.social.domain.Activity;
 import com.pm.social.domain.UserActivity;
+import com.pm.social.domain.vo.ActivityInfo;
 import com.pm.social.mapper.ActivityMapper;
+import com.pm.social.util.ActivityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,27 +19,37 @@ public class ActivityService {
     @Autowired
     private ActivityMapper activityMapper;
 
-    public Activity findOneActivityById(int activityId) {
+    public ActivityInfo findOneActivityById(int activityId) {
         Activity activity = activityMapper.findById(activityId);
-        return activity;
+        return ActivityUtil.transToInfo(activity);
     }
 
-    public List<Activity> findAllActivities() {
+    public List<ActivityInfo> findAllActivities() {
         List<Activity> activityList = activityMapper.findAll();
-        return activityList;
+        List<ActivityInfo> result = new ArrayList<>();
+        for (Activity a:activityList
+             ) {
+            result.add(ActivityUtil.transToInfo(a));
+        }
+        return result;
     }
 
-    public List<Activity> findLauncherUserActivities(Integer userId) {
+    public List<ActivityInfo> findLauncherUserActivities(Integer userId) {
         List<Activity> activityList = activityMapper.findLauncherUserActivities(userId);
-        return activityList;
+        List<ActivityInfo> result = new ArrayList<>();
+        for (Activity a:activityList
+             ) {
+            result.add(ActivityUtil.transToInfo(a));
+        }
+        return result;
     }
-    public List<Activity> findParticipateUserActivities(Integer userId) {
+    public List<ActivityInfo> findParticipateUserActivities(Integer userId) {
         List<UserActivity> userActivityList = activityMapper.findParticipateUserActivities(userId);
-        List<Activity> activities = new ArrayList<>();
+        List<ActivityInfo> activities = new ArrayList<>();
         for (int i = 0; i < userActivityList.size(); i++) {
             Activity activity = activityMapper.findById(userActivityList.get(i).getActivity_id());
             if (activity != null){
-                activities.add(activity);
+                activities.add(ActivityUtil.transToInfo(activity));
             }
         }
         return activities;

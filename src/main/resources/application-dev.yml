@@ -5,7 +5,7 @@ spring:
     url: jdbc:mysql://39.102.33.168:3306/social?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF8
     username: root
     password: 618916hhxx@Dwl
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.pm.social.domain

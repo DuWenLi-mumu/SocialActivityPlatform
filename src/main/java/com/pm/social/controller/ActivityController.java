@@ -3,6 +3,7 @@ package com.pm.social.controller;
 import com.pm.social.Service.ActivityService;
 import com.pm.social.domain.Activity;
 import com.pm.social.domain.Result;
+import com.pm.social.domain.vo.ActivityInfo;
 import com.pm.social.domain.vo.UserCard;
 import com.pm.social.mapper.ActivityMapper;
 import io.swagger.annotations.ApiImplicitParam;
@@ -27,7 +28,7 @@ public class ActivityController {
     @ApiOperation(value = "获取发布的所有活动", notes = "获取发布的所有活动")
     @GetMapping("/findAllActivities")
     public Result findAllActivities() {
-        List<Activity> activityList = activityService.findAllActivities();
+        List<ActivityInfo> activityList = activityService.findAllActivities();
         return Result.success(activityList);
     }
 
@@ -37,7 +38,7 @@ public class ActivityController {
     })
     @GetMapping("/findLauncherUserActivities")
     public Result findUserActivities(Integer userId) {
-        List<Activity> activityList = activityService.findLauncherUserActivities(userId);
+        List<ActivityInfo> activityList = activityService.findLauncherUserActivities(userId);
         return Result.success(activityList);
     }
 
@@ -47,7 +48,7 @@ public class ActivityController {
     })
     @GetMapping("/findParticipateUserActivities")
     public Result findParticipateUserActivities(Integer userId) {
-        List<Activity> activityList = activityService.findParticipateUserActivities(userId);
+        List<ActivityInfo> activityList = activityService.findParticipateUserActivities(userId);
         return Result.success(activityList);
     }
 
@@ -57,7 +58,7 @@ public class ActivityController {
     })
     @GetMapping("/findOneActivityById")
     public Result findOneActivityById(int activityId) {
-        Activity activity = activityService.findOneActivityById(activityId);
+        ActivityInfo activity = activityService.findOneActivityById(activityId);
         if (activity == null){
             return Result.fail("该活动不存在");
         }else {

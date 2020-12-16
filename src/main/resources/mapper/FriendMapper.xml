@@ -5,4 +5,8 @@
     <select id="findFriendsById" resultType="Friend" parameterType="int">
         select * from friend where user_id = #{userId}
     </select>
+    <!--插入操作-->
+    <insert id="addFriends" parameterType="int" useGeneratedKeys="true" keyProperty="id">
+        insert into friend(user_id,friend_id) values(#{userId},#{friendId})
+    </insert>
 </mapper>
