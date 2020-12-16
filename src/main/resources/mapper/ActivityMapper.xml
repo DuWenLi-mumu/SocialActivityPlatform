@@ -8,7 +8,10 @@
     <select id="findAll" resultType="Activity">
         select * from activity
     </select>
-    <select id="findUserActivities" resultType="Activity" parameterType="int">
+    <select id="findLauncherUserActivities" resultType="Activity" parameterType="int">
         select * from activity a where a.launcher_id = #{userId}
+    </select>
+    <select id="findParticipateUserActivities" resultType="UserActivity" parameterType="int">
+        select * from user_activity ua where ua.user_id = #{userId}
     </select>
 </mapper>

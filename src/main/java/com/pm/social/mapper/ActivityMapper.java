@@ -1,6 +1,8 @@
 package com.pm.social.mapper;
 
 import com.pm.social.domain.Activity;
+import com.pm.social.domain.User;
+import com.pm.social.domain.UserActivity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,5 +19,7 @@ public interface ActivityMapper {
      */
     Activity findById(Integer id);
     List<Activity> findAll();
-    List<Activity> findUserActivities(Integer id);
+
+    List<Activity> findLauncherUserActivities(Integer userId);
+    List<UserActivity> findParticipateUserActivities(Integer userId);
 }

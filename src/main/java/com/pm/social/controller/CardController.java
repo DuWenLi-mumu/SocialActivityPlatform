@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * Created by 杜文丽 on 12/8/2020 7:51 PM
  **/
 @RestController
+@CrossOrigin
 public class CardController {
     @Autowired
     private CardService cardService;

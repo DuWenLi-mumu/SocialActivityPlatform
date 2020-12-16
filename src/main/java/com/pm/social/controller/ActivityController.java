@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * Created by 杜文丽 on 12/8/2020 8:02 PM
  **/
 @RestController
+@CrossOrigin
 public class ActivityController {
     @Autowired
     private ActivityService activityService;
@@ -33,9 +35,19 @@ public class ActivityController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "userId", value = "用户id", required = true, dataType = "int", paramType = "query")
     })
-    @GetMapping("/findUserActivities")
+    @GetMapping("/findLauncherUserActivities")
     public Result findUserActivities(Integer userId) {
-        List<Activity> activityList = activityService.findUserActivities(userId);
+        List<Activity> activityList = activityService.findLauncherUserActivities(userId);
+        return Result.success(activityList);
+    }
+
+    @ApiOperation(value = "获取该用户参与的所有活动", notes = "获取单个用户参与的所有活动")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户id", required = true, dataType = "int", paramType = "query")
+    })
+    @GetMapping("/findParticipateUserActivities")
+    public Result findParticipateUserActivities(Integer userId) {
+        List<Activity> activityList = activityService.findParticipateUserActivities(userId);
         return Result.success(activityList);
     }
 
