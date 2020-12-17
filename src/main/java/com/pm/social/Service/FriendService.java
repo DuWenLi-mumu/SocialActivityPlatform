@@ -7,6 +7,7 @@ import com.pm.social.mapper.FriendMapper;
 import com.pm.social.mapper.UserMapper;
 import com.pm.social.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
  * Created by 杜文丽 on 12/9/2020 3:21 PM
  **/
 @Service
+@Component
 public class FriendService {
     @Autowired
     private FriendMapper friendMapper;

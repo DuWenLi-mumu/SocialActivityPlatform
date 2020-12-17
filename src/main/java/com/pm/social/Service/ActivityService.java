@@ -6,6 +6,7 @@ import com.pm.social.domain.vo.ActivityInfo;
 import com.pm.social.mapper.ActivityMapper;
 import com.pm.social.util.ActivityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,13 +16,16 @@ import java.util.List;
  * Created by 杜文丽 on 12/8/2020 8:02 PM
  **/
 @Service
+@Component
 public class ActivityService {
     @Autowired
     private ActivityMapper activityMapper;
+    @Autowired
+    private ActivityUtil activityUtil;
 
     public ActivityInfo findOneActivityById(int activityId) {
         Activity activity = activityMapper.findById(activityId);
-        return ActivityUtil.transToInfo(activity);
+        return activityUtil.transToInfo(activity);
     }
 
     public List<ActivityInfo> findAllActivities() {
@@ -29,7 +33,7 @@ public class ActivityService {
         List<ActivityInfo> result = new ArrayList<>();
         for (Activity a:activityList
              ) {
-            result.add(ActivityUtil.transToInfo(a));
+            result.add(activityUtil.transToInfo(a));
         }
         return result;
     }
@@ -39,7 +43,7 @@ public class ActivityService {
         List<ActivityInfo> result = new ArrayList<>();
         for (Activity a:activityList
              ) {
-            result.add(ActivityUtil.transToInfo(a));
+            result.add(activityUtil.transToInfo(a));
         }
         return result;
     }
@@ -49,7 +53,7 @@ public class ActivityService {
         for (int i = 0; i < userActivityList.size(); i++) {
             Activity activity = activityMapper.findById(userActivityList.get(i).getActivity_id());
             if (activity != null){
-                activities.add(ActivityUtil.transToInfo(activity));
+                activities.add(activityUtil.transToInfo(activity));
             }
         }
         return activities;

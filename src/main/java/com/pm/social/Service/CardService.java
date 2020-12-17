@@ -6,6 +6,7 @@ package com.pm.social.Service;
         import com.pm.social.mapper.CardMapper;
         import com.pm.social.mapper.UserMapper;
         import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Component;
         import org.springframework.stereotype.Service;
 
         import java.util.ArrayList;
@@ -15,6 +16,7 @@ package com.pm.social.Service;
  * Created by 杜文丽 on 12/8/2020 7:00 PM
  **/
 @Service
+@Component
 public class CardService {
     @Autowired
     private CardMapper cardMapper;
