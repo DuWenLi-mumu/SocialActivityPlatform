@@ -9,6 +9,7 @@ import java.util.Date;
  **/
 @Data
 public class ActivityInfo {
+    private Integer id;
     private String launcherName;
     private String organizerName;
     private Date beginTime;

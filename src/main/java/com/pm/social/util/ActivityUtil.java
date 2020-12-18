@@ -24,6 +24,7 @@ public class ActivityUtil {
 
     public ActivityInfo transToInfo(Activity activity) {
         ActivityInfo activityInfo = new ActivityInfo();
+        activityInfo.setId(activity.getId());
         activityInfo.setAddress(activity.getAddress());
         activityInfo.setBeginTime(activity.getBegin_time());
         activityInfo.setEndTime(activity.getEnd_time());
