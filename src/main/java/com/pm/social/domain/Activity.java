@@ -1,6 +1,7 @@
 package com.pm.social.domain;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -12,10 +13,10 @@ public class Activity {
     private Integer id;
     private Integer launcher_id;
     private Integer organizer_id;
-    private Date begin_time;
-    private Date end_time;
-    private Date registration_start_time;
-    private Date registration_end_time;
+    private String begin_time;
+    private String end_time;
+    private String registration_start_time;
+    private String registration_end_time;
     private Integer people_number;
     private String address;
     private String title;

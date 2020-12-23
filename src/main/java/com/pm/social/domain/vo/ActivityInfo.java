@@ -12,10 +12,10 @@ public class ActivityInfo {
     private Integer id;
     private String launcherName;
     private String organizerName;
-    private Date beginTime;
-    private Date endTime;
-    private Date registrationStartTime;
-    private Date registrationEndTime;
+    private String beginTime;
+    private String endTime;
+    private String registrationStartTime;
+    private String registrationEndTime;
     private Integer peopleNumber;
     private String address;
     private String title;

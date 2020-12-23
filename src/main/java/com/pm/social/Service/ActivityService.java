@@ -58,4 +58,9 @@ public class ActivityService {
         }
         return activities;
     }
+
+    public int addOneActivity(Activity activity) {
+        int res = activityMapper.addOneActivity(activity);
+        return res;
+    }
 }

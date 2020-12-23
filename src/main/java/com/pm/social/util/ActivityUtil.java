@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by 杜文丽 on 12/16/2020 9:45 PM
  **/
@@ -23,16 +26,26 @@ public class ActivityUtil {
     private UserMapper userMapper;
 
     public ActivityInfo transToInfo(Activity activity) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:MM:ss");//大写是24小时的
+        Date date = new Date();
         ActivityInfo activityInfo = new ActivityInfo();
         activityInfo.setId(activity.getId());
         activityInfo.setAddress(activity.getAddress());
-        activityInfo.setBeginTime(activity.getBegin_time());
-        activityInfo.setEndTime(activity.getEnd_time());
+
+        date.setTime(Long.valueOf(activity.getBegin_time()));
+        activityInfo.setBeginTime(sdf.format(date));
+        date.setTime(Long.valueOf(activity.getEnd_time()));
+        activityInfo.setEndTime(sdf.format(date));
+        date.setTime(Long.valueOf(activity.getRegistration_start_time()));
+        activityInfo.setRegistrationStartTime(sdf.format(date));
+        date.setTime(Long.valueOf(activity.getRegistration_end_time()));
+        activityInfo.setRegistrationEndTime(sdf.format(date));
+
         activityInfo.setDescription(activity.getDescription());
         activityInfo.setMaxNumber(activity.getMax_number());
         activityInfo.setPeopleNumber(activity.getPeople_number());
-        activityInfo.setRegistrationStartTime(activity.getRegistration_start_time());
-        activityInfo.setRegistrationEndTime(activity.getRegistration_end_time());
+
+
         activityInfo.setTitle(activity.getTitle());
         int launcherId = activity.getLauncher_id();
         int orgId = activity.getOrganizer_id();

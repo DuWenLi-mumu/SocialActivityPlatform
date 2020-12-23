@@ -21,5 +21,6 @@ public interface ActivityMapper {
     List<Activity> findAll();
 
     List<Activity> findLauncherUserActivities(Integer userId);
+    int addOneActivity(Activity activity);
     List<UserActivity> findParticipateUserActivities(Integer userId);
 }

@@ -14,4 +14,8 @@
     <select id="findParticipateUserActivities" resultType="UserActivity" parameterType="int">
         select * from user_activity ua where ua.user_id = #{userId}
     </select>
+    <insert id="addOneActivity" parameterType="com.pm.social.domain.Activity">
+        insert into activity(launcher_id,organizer_id,begin_time,end_time,address,title,description,type,registration_start_time,registration_end_time,people_number,max_number)
+         values (#{launcher_id},#{organizer_id},#{begin_time},#{end_time},#{address},#{title},#{description},#{type},#{registration_start_time},#{registration_end_time},#{people_number},#{max_number})
+    </insert>
 </mapper>
